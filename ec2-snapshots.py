@@ -23,7 +23,7 @@ ec2 = boto3.client('ec2')
 result = ec2.describe_volumes( Filters=[{'Name': 'tag:Role', 'Values': [args.role]}])
 
 #setup log file for snapshots 
-fully_qualified_snapshot_log="/home/dpladmin/scripts/tmp/snapshot_log"
+fully_qualified_snapshot_log="/home/dplbackups/scripts/log/snapshot_log"
 log = open(fully_qualified_snapshot_log, "a")
 
 # Now iterate for each volume
@@ -66,7 +66,7 @@ client = boto3.client('ec2')
 account_id=boto3.client('sts').get_caller_identity()['Account']
 
 #setup log file 
-fully_qualified_snapshot_delete_log="/home/dpladmin/scripts/tmp/snapshot_delete_log"
+fully_qualified_snapshot_delete_log="/home/dplbackups/scripts/log/snapshot_delete_log"
 log = open(fully_qualified_snapshot_delete_log, "a")
 
 #get list of snapshots
