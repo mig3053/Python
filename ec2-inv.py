@@ -113,15 +113,11 @@ for instance in all_instances:
 #RDS
 ###############################################################################
 # Get list of all instances
-clusters  = rds.describe_db_instances()
-cluster_details = clusters['DBInstances']
-
-
 print ("**********RDS Databases******************", file=log)
-for cluster in cluster_details:
-
-    cluster_name = cluster['DBClusterIdentifier']
-    print (cluster_name, file=log)
+dbs = rds.describe_db_instances()
+for db in dbs['DBInstances']:
+    db_name = db['DBInstanceIdentifier']
+    print ( db_name, file=log)
 
 
 ###############################################################################
