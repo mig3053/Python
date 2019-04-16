@@ -29,7 +29,7 @@ mfa_TOTP = raw_input("Enter the MFA code: ")
 
 client = session.client('sts')
 
-response = client.get_session_token( DurationSeconds=3600, SerialNumber='arn:aws:iam::718306743103:mfa/Kawaljit.Mokha@ABILITYNetwork.com', TokenCode=mfa_TOTP )
+response = client.get_session_token( DurationSeconds=3600, SerialNumber='arn:aws:iam::1111111111111:mfa/xxxx@hotmail.com', TokenCode=mfa_TOTP )
 
 aws_access_key_id=response['Credentials']['AccessKeyId']
 aws_secret_access_key=response['Credentials']['SecretAccessKey']
